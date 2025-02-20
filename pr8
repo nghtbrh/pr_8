@@ -59,7 +59,7 @@ public class Main {
             result.append(new StringBuilder(word).reverse().toString()).append(" ");
         }
 
-        return result.toString().trim();
+        return result.toString().trim();//тріми щоб не було проблем з підрахуваннями якщо користувач введе випадково пробіли
     }
 }
         return result.toString().trim();
