@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String userInput = input1();
+
+        System.out.println("виберіть опцію:");
+        System.out.println("1 - перевернути всю строку");
+        System.out.println("2 - перевернути кожне слово окремо");
+
+        int vibir = scanner.nextInt();
+        scanner.nextLine();
+
+        if (vibir == 1) {
+            System.out.println("ваш результат: " + reverseString(userInput));
+        } else if (vibir == 2) {
+            System.out.println("ваш результат: " + reverseEachWord(userInput));
+        } else {
+            System.out.println("невірний вибір.");
+        }
+    }
+    public static String input1() {
+        Scanner scanner = new Scanner(System.in);
+        String input;
+
+        while (true) {
+            System.out.print("введіть строку в котрій мінімум 2 слова, кожне з 3 символів: ");
+            input = scanner.nextLine().trim();
+
+            if (input2(input)) {
+                return input;
+            } else {
+                System.out.println("помилка,строка не відповідає вимогам,введіть ще раз.");
+            }
+        }
+    }
+    public static boolean input2(String input) {
+        String[] words = input.split("\\s+");
+        if (words.length < 2) {
+            return false;
+        }
+        for (String word : words) {
+            if (word.length() < 3) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    public static String reverseString(String str) {   //усю строку
+        return new StringBuilder(str).reverse().toString();
+    }
+    public static String reverseEachWord(String str) {   //кожне слово
+        String[] words = str.split("\\s+");
+        StringBuilder result = new StringBuilder();
+
+        for (String word : words) {
+            result.append(new StringBuilder(word).reverse().toString()).append(" ");
+        }
+
+        return result.toString().trim();
+    }
+}
+        return result.toString().trim();
+    }
+}
